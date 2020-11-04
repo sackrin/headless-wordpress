@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+
+  wordpress:
+    image: wordpress:5.5.1
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: P@ssW0rd
+      WORDPRESS_DB_NAME: wp
+    volumes:
+      - ./tmp/wp:/var/www/html
+      - ./theme:/var/www/html/wp-content/themes/headless
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: wp
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: P@ssW0rd
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8888:8080
+
+

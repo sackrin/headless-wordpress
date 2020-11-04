@@ -1,0 +1,17 @@
+{
+  "name": "headless/wp",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\" : "app/"
+    }
+  },
+  "require": {
+    "sackrin/fusion": "^1.0",
+    "sackrin/fusion-model": "^1.0",
+    "sackrin/boilerplate-utils": "^0.5.0",
+    "nesbot/carbon": "^2.41",
+    "phpmailer/phpmailer": "^6.1",
+    "wixel/gump": "^1.12"
+  }
+}
